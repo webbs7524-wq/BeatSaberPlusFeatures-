@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+
+    <PropertyGroup>
+        <PluginId>BeatSaberPlus_MultiplayerLateJoinFix</PluginId>
+        <PluginName>BeatSaberPlus Multiplayer Waiting Practice</PluginName>
+        <Authors>webbs</Authors>
+        <Version>1.0.0</Version>
+        <GameVersion>1.40.8</GameVersion>
+        <Description>Lets Multiplayer+ late joiners play local practice songs while waiting for the room.</Description>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <DependsOn Include="BSIPA" Version="^4.3.0" />
+        <DependsOn Include="BeatSaberPlus_Multiplayer" Version="^6.4.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <LoadAfter Include="BeatSaberPlus_Multiplayer" />
+    </ItemGroup>
+
+    <PropertyGroup>
+        <BSMTProjectType>BSIPA</BSMTProjectType>
+        <GenerateManifest>true</GenerateManifest>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)' != 'Release'">
+        <DisableZipRelease>true</DisableZipRelease>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <OutputCopy Include="$(OutputPath)\$(TargetFileName)" OutputPath="Plugins\$(TargetFileName)" />
+        <OutputCopy Include="$(OutputPath)\$(TargetName).pdb" OutputPath="Plugins\$(TargetName).pdb" />
+    </ItemGroup>
+
+</Project>
